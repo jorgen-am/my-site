@@ -1,5 +1,5 @@
 ---
 title: Test page
-draft: true
+draft: false
 ---
 This page was created from Decap CMS.

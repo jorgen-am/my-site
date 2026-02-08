@@ -17,3 +17,44 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "cars"
+    label: "Biler"
+    folder: "content"
+    create: true
+
+    # Level 1 + Level 2 folders control the URL
+    path: "{{level1}}/{{level2}}/{{slug}}"
+
+    # Level 3–4: car-specific slug
+    slug: "{{model}}-{{spec}}-{{phrase}}"
+
+    fields:
+      - label: "Hovedkategori (nivå 1)"
+        name: "level1"
+        widget: "select"
+        options:
+          - "leasing-bil-privat"
+          - "leasing-firmabil"
+          - "leasing-varebil"
+
+      - label: "Underkategori / merke (nivå 2)"
+        name: "level2"
+        widget: "string"
+        hint: "Eksempel: mg, tesla, volvo (kun små bokstaver, bindestrek)"
+
+      - { label: "Modell", name: "model", widget: "string" }
+      - { label: "Spesifikasjon", name: "spec", widget: "string" }
+      - { label: "Frase", name: "phrase", widget: "string" }
+
+      # Force Hugo to use the cars template
+      - { label: "Type", name: "type", widget: "hidden", default: "cars" }
+
+      - { label: "Tittel (vises på siden)", name: "title", widget: "string" }
+      - { label: "Kladd (draft)", name: "draft", widget: "boolean", default: true }
+
+      - { label: "Pris per måned", name: "price", widget: "number", required: false 
+}
+      - { label: "Årsmodell", name: "year", widget: "number", required: false }
+
+      - { label: "Innhold", name: "body", widget: "markdown" }
+
